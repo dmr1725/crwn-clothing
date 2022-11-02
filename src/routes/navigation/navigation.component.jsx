@@ -2,7 +2,6 @@ import { Fragment, useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { Outlet, Link } from 'react-router-dom';
 
-import { UserContext } from '../../contexts/user.context';
 import { CartContext } from '../../contexts/cart.context';
 import { selectCurrentUser } from '../../store/user/user.selector';
 
