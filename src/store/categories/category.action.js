@@ -22,13 +22,3 @@ export const fetchCategoriesFailed = (error) =>
         CATEGORIES_ACTION_TYPES.FETCH_CATEGORIES_FAILED,
         error
     );
-
-export const fetchCategoriesAsync = () => async (dispatch) => {
-    dispatch(fetchCategoriesStart());
-    try {
-        const catgegoriesArray = await getCategoriesAndDocuments();
-        dispatch(fetchCategoriesSuccess(catgegoriesArray));
-    } catch(error){
-        dispatch(fetchCategoriesFailed(error));
-    }
-}
