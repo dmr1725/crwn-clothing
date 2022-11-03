@@ -7,6 +7,7 @@ const selectCategoryReducer = (state) => {
 
 // createSelector is used to memoize/cache results
 // I think that it will not re-render or re-compute if categories hasn't change
+// lecture 162. Reselect library
 export const selectCategories = createSelector(
     [selectCategoryReducer],
     (categoriesSlice) => {
