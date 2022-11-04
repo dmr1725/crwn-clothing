@@ -18,17 +18,6 @@ import { checkUserSession } from "./store/user/user.action";
 const App = () => {
   const dispatch = useDispatch();
 
-  // useEffect(()=>{
-  //   dispatch(checkUserSession())
-  //   // getCurrentUser().then((user) => console.log(user))
-  //   // const unsubscribe = onAuthStateChangedListener((user)=>{
-  //   //     if(user){
-  //   //         createUserDocumentFromAuth(user);
-  //   //     }
-  //   //     dispatch(setCurrentUser(user));
-  //   // });
-  //   // return unsubscribe
-  // }, []);
   useEffect(() => {
     dispatch(checkUserSession());
   }, []);
