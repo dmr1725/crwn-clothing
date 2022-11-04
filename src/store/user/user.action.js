@@ -16,6 +16,7 @@ export const checkUserSession = () =>
   createAction(USER_ACTION_TYPES.CHECK_USER_SESSION);
 
 export const googleSignInStart = () =>
+  // Step 2: Create action for google sign in start
   createAction(USER_ACTION_TYPES.GOOGLE_SIGN_IN_START);
 
 export const emailSignInStart = (email, password) =>

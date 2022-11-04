@@ -25,6 +25,7 @@ const SignInForm = () => {
   };
 
   const signInWithGoogle = async () => {
+    // Step 1: Dispatch googleSignInStart
     dispatch(googleSignInStart());
   };
 

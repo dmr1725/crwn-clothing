@@ -22,11 +22,13 @@ import {
 
 export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
   try {
+    // Step 6: this looks for the user in firebase
     const userSnapshot = yield call(
       createUserDocumentFromAuth,
       userAuth,
       additionalDetails
     );
+    // Step 7: This calls the user reducer to update the state of currentUser
     yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
   } catch (error) {
     yield put(signInFailed(error));
@@ -35,6 +37,7 @@ export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
 
 export function* signInWithGoogle() {
   try {
+    // Step 4: this triggers the google popup
     const { user } = yield call(signInWithGooglePopup);
     yield call(getSnapshotFromUserAuth, user);
   } catch (error) {
@@ -92,6 +95,7 @@ export function* signInAfterSignUp({ payload: { user, additionalDetails } }) {
 }
 
 export function* onGoogleSignInStart() {
+  // Step 3: Acknowledge action for google sign in start and call signInWithGoogle
   yield takeLatest(USER_ACTION_TYPES.GOOGLE_SIGN_IN_START, signInWithGoogle);
 }
 
