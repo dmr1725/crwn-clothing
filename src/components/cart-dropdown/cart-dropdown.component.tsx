@@ -9,15 +9,14 @@ import {
   EmptyMessage,
   CartItems,
 } from "./cart-dropdown.styles";
-import { useCallback, useMemo } from "react";
 
 const CartDropdown = () => {
   const cartItems = useSelector(selectCartItems);
   const navigate = useNavigate();
 
-  const goToCheckoutHandler = useCallback(() => {
+  const goToCheckoutHandler = () => {
     navigate("/checkout");
-  }, []);
+  };
 
   return (
     <CartDropdownContainer>
