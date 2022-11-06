@@ -1,18 +1,19 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { store, persistor } from './store/store';
-import { Elements } from '@stripe/react-stripe-js';
-import { stripePromise } from './utils/stripe/stripe.utils';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { store, persistor } from "./store/store";
+import { Elements } from "@stripe/react-stripe-js";
+import { stripePromise } from "./utils/stripe/stripe.utils";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
-import App from './App';
+import App from "./App";
 
-import './index.scss';
+import "./index.scss";
 
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement)
+const rootElement = document.getElementById("root");
+const root = createRoot(rootElement);
 
 root.render(
   <React.StrictMode>
@@ -25,5 +26,7 @@ root.render(
         </BrowserRouter>
       </PersistGate>
     </Provider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
+
+serviceWorkerRegistration.register();
