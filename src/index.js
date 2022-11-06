@@ -10,8 +10,6 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 import App from "./App";
 
-import "./index.scss";
-
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
